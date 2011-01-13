@@ -1,5 +1,5 @@
 note
-	description : "project application root class"
+	description : "eiffel demo: a small application"
 	date        : "$Date$"
 	revision    : "$Revision$"
 
@@ -18,8 +18,6 @@ feature {NONE} -- Initialization
 	make
 			-- Run application.
 	local
-
-		tr: TRACER;
 		led : LED_DRIVER
 
 		do
@@ -35,19 +33,10 @@ feature {NONE} -- Initialization
 			led.clear (2)
 			led.show
 			print ("TimeTest %N")
-				print ("little endian: ");print (Is_little_endian); print("%N")
-				print ("isLinux      : ");print (Is_unix);    print("%N")
-				print ("isWindows    : ");print (Is_windows); print("%N")
-				print ("isVxworks    : ");print (Is_vxworks); print("%N")
-		create tr.showtime;
-            --print ("Sleeping 5 seconds ")
-            --sleep (5000000000)
-            --print ("Awake!%N")
-		create tr.showtime
-	--	tr.seconds_in_minute
-		sleep(1*1000*1000)
-		create tr.showtime
-
+			print ("little endian: ");print (Is_little_endian); print("%N")
+			print ("isLinux      : ");print (Is_unix);    print("%N")
+			print ("isWindows    : ");print (Is_windows); print("%N")
+			print ("isVxworks    : ");print (Is_vxworks); print("%N")
 		end
 
 end

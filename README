@@ -7,9 +7,97 @@ My interests are:
 - Design by Contract
 - Test Driver Development
 - Embedded (Linux/vxWorks)
+- Continuos Integration (Hudson)
 
 I installed EiffelStudio 6.7.8.5123-1.
 
 The demos/learning at dev.eiffel.com are really terrific and kept
 me busy for a few evenings.
 
+Using EiffelStudio I was able to run the AutoTest like this:
+a) Create a manual tests
+b) Compile the main application
+c) Open LED_DRIVER_TEST_SET in the editor
+d) Compile it
+e) In the AutoTest-Window select the LED_DRIVER_TEST_SET class.
+f) Click "Run Selected Tests"-button 
+
+For continuos integration I always check, how easy it is to
+to a completly batch driven checkout/compile/test cycle on
+a server which has graphical output device.
+
+Compiling the application proved easy, e.g.
+$ cd /path/to/checkout
+$ ec -batch -config project.ecf -finalize -c_compile -target project 
+Then I was able to run the project
+$ EIFGENs/project/F_code/project
+
+Running the AutoTest however failed. I tried
+$ cd /path/to/checkout
+$ rm -rf EIFGENs
+$ ec -config project.ecf -target project -auto_test
+
+I got the followin output
+Eiffel Compilation Manager
+Version 6.7.8.5123 GPL Edition - unix
+
+Degree 6: Examining System
+Degree 5: Parsing Classes
+Degree 4: Analyzing Inheritance
+Degree 3: Checking Types
+Degree 2: Generating Byte Code
+Freezing System Changes
+Degree -1: Generating Code
+System Recompiled.
+You must now run "finish_freezing-6.7" in:
+        /home/niklaus/project/EIFGENs/project/W_code
+ISE Eiffel: Session aborted
+Exception tag: 
+
+ec: system execution failed.
+Following is the set of recorded exceptions:
+
+******************************** Thread exception *****************************
+In thread           Root thread            0x0 (thread id)
+*******************************************************************************
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+ETEST_GENERATION_TESTING
+                    make_random @3         
+<00007F22F0159938>                         Feature call on void target.  Fail
+-------------------------------------------------------------------------------
+ETEST_GENERATION_TESTING
+                    make_random @3         
+<00007F22F0159938>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+TEST_GENERATOR      initiate_testing_task @3
+<00007F22F01436E8>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+TEST_GENERATOR      start_creation @3                                   
+<00007F22F01436E8>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+TEST_GENERATOR      start @2                                            
+<00007F22F01436E8>  (From ETEST_CREATION)  Routine failure.              Fail
+-------------------------------------------------------------------------------
+TEST_SUITE          launch_session @6                                   
+<00007F22F0117968>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+EWB_AUTO_TEST       execute_with_test_suite @37
+<000000000B99AC48>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+EWB_AUTO_TEST       execute @4                                          
+<000000000B99AC48>  (From EWB_TEST_CMD)    Routine failure.              Fail
+-------------------------------------------------------------------------------
+ES_BATCH            execute @43                                         
+<000000000B99ABC8>  (From ES)              Routine failure.              Rescue
+-------------------------------------------------------------------------------
+ES_BATCH            make @13                                            
+<000000000B99ABC8>  (From ES)              Routine failure.              Fail
+-------------------------------------------------------------------------------
+EB_KERNEL           make @5                                             
+<000000000B99A908>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+EB_KERNEL           root's creation                                     
+<000000000B99A908>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
