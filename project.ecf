@@ -15,7 +15,10 @@
 				<exclude>/CVS$</exclude>
 				<exclude>/.svn$</exclude>
 			</file_rule>
-			<tests name="tests" location="tests\"/>
+			<tests name="tests" location="tests\">
+				<option void_safety="all">
+				</option>
+			</tests>
 		</cluster>
 	</target>
 	<target name="project_dotnet" extends="project">

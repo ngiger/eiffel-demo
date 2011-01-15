@@ -9,10 +9,23 @@ My interests are:
 - Embedded (Linux/vxWorks)
 - Continuos Integration (Hudson)
 
+Some interesting links:
+Cross-Compilation: http://tech.groups.yahoo.com/group/eiffel_software/message/18142
+
+Running from command line for hudson
+http://eiffelstudio.origo.ethz.ch/node/230
+http://tech.groups.yahoo.com/group/eiffel_software/message/14302
+
+Aus http://eiffelstudio.origo.ethz.ch/node/369
+This is the way it is currently done for some of the Eiffel libraries. For example $ISE_EIFFEL/library/i18n/tests contains a project to test the i18n library. In this case, the tests themselves are not part of the library but part of the second project which includes the library. That way it is possible to separate testing/development from the delivery of the library.
+
 I installed EiffelStudio 6.7.8.5123-1.
 
 The demos/learning at dev.eiffel.com are really terrific and kept
 me busy for a few evenings.
+
+
+
 
 Using EiffelStudio I was able to run the AutoTest like this:
 a) Create a manual tests
