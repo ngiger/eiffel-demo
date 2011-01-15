@@ -13,13 +13,11 @@
 			<file_rule>
 				<exclude>/EIFGENs$</exclude>
 				<exclude>/CVS$</exclude>
+				<exclude>/tests$</exclude>
 				<exclude>/.svn$</exclude>
 			</file_rule>
-			<tests name="tests" location="tests\">
-				<option void_safety="all">
-				</option>
-			</tests>
 		</cluster>
+		<cluster name="tests" location="\home\niklaus\project\tests\" recursive="true"/>
 	</target>
 	<target name="project_dotnet" extends="project">
 		<setting name="msil_generation" value="true"/>
