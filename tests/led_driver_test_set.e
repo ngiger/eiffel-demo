@@ -21,7 +21,7 @@ feature -- Test routines
 		do
 			create l
 			print ("Testing")
-			assert("0 after creation", l.state = 0)
+			assert("0 after creation", l.state = 1)
 			l.set (8); l.show
 			assert("256 after set 8", l.state = 256)
 			l.set (0);
