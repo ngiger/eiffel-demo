@@ -5,6 +5,10 @@
 
 # For the command line options look at
 # http://docs.eiffel.com/book/eiffelstudio/eiffelstudio-command-line-options
+# we use often the -batch open.
+#
+# TODO: Fix problems when compiling takes too long and/or there
+#       are ec process lingering around from a previous failed build
 
 require 'tempfile'
 require 'fileutils'
@@ -43,7 +47,7 @@ EOF
   FileUtils.rm_rf("EIFGENs")
   
   # compile the system
-  cmd = "ec -config project.ecf -target project -c_compile" 
+  cmd = "ec -config project.ecf -target project -batch -c_compile" 
   res = system(cmd)
 
   logFile = "#{__FILE__}.log"
