@@ -62,6 +62,7 @@ EOF
     puts "#{m[1]} tests completed successfully"
   else
     puts "Failures while running #{m[1]} failed. #{m[2]} executed  #{m[3]} failures #{m[4]} unresolved"
+    exit 2
   end
 end
 
